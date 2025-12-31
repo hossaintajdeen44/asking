@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asking Out for Coffee</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #D2B48C; /* Coffee color background */
+            color: #4B2F20; /* Dark brown text for contrast */
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .slide {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .slide.active {
+            display: block;
+        }
+        h1, h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #8B4513; /* Saddle brown for buttons */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #A0522D; /* Darker brown on hover */
+        }
+        .emoji {
+            font-size: 2em;
+        }
+        .confetti {
+            position: relative;
+            overflow: hidden;
+        }
+        .confetti::before {
+            content: '🎉✨🎊🎈';
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            animation: fall 3s linear infinite;
+        }
+        @keyframes fall {
+            0% { top: -50px; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .arrow {
+            font-size: 2em;
+            color: #FF6347; /* Tomato red for arrow */
+        }
+    </style>
+</head>
+<body>
+    <div id="slide1" class="slide active">
+        <h1>Hey Sunshine ☀️</h1>
+        <button onclick="nextSlide('slide2')">What</button>
+    </div>
+
+    <div id="slide2" class="slide">
+        <h2>I want to say something 💬</h2>
+        <button onclick="nextSlide('slide3')">Ok</button>
+        <button onclick="nextSlide('slide2a')">Shunbo na</button>
+    </div>
+
+    <div id="slide2a" class="slide">
+        <h2>Ektu shunen 🙏</h2>
+        <button onclick="nextSlide('slide3')">Fine</button>
+    </div>
+
+    <div id="slide3" class="slide">
+        <h2>Would you mind having a cup of coffee? ☕</h2>
+        <button onclick="nextSlide('slide4')">Dekhi</button>
+        <button onclick="nextSlide('slide3a')">Thandaa... jaboo naaa</button>
+    </div>
+
+    <div id="slide3a" class="slide">
+        <p>Sedge 😅</p>
+        <p class="arrow">➡️</p>
+        <button onclick="nextSlide('slide3')">Dekhi</button>
+    </div>
+
+    <div id="slide4" class="slide">
+        <h2>Of course you will see me 😊</h2>
+        <button onclick="nextSlide('slide5')">Tomar matha</button>
+    </div>
+
+    <div id="slide5" class="slide">
+        <h2>Well khoma ta bhalo ase ngl 😏</h2>
+        <button onclick="nextSlide('slide6')">😒</button>
+    </div>
+
+    <div id="slide6" class="slide">
+        <h2>So may I have the privilege? 🤗</h2>
+        <button onclick="nextSlide('slide7')">Dekhi</button>
+        <button onclick="showViolence()">Tomar matha fatai dibo</button>
+    </div>
+
+    <div id="slide7" class="slide confetti">
+        <h2>Ok see you soon! 🎉</h2>
+    </div>
+
+    <div id="slide8" class="slide">
+        <h2>Violence k na boli 🎊</h2>
+        <p class="emoji">🙏</p>
+    </div>
+
+    <script>
+        function nextSlide(slideId) {
+            // Hide all slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            // Show the target slide
+            document.getElementById(slideId).classList.add('active');
+        }
+
+        function showViolence() {
+            nextSlide('slide8');
+            setTimeout(() => {
+                nextSlide('slide6');
+            }, 1000); // 1 second delay
+        }
+    </script>
+</body>
+</html>
